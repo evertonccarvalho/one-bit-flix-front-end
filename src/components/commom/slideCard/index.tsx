@@ -15,8 +15,10 @@ export default function SlideCard({ course }: props) {
           alt={course.name}
           className={styles.slideImg}
         />
-        <p className={styles.slideTitle}>{course.name}</p>
-        <p className={styles.description}>{course.synopsis}</p>
+        <div className={styles.slideTextArea}>
+          <p className={styles.slideTitle}>{course.name}</p>
+          <p className={styles.slideDescription}>{course.synopsis}</p>
+        </div>
       </div>
     </>
   );

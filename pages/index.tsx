@@ -30,7 +30,7 @@ export default function HomeNoAuth({ course }: IndexPageProps) {
           <HeaderNoAuth />
           <PresentationSection />
         </div>
-        <CardsSection />
+        {/* <CardsSection /> */}
         <SlideSection newestCourses={course} />
       </main>
     </>
