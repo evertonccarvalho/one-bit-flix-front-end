@@ -1,0 +1,29 @@
+@import "../../../../styles/colors.module.scss";
+
+.slide {
+  width: 95%;
+  height: 350px;
+  border: 1px solid $darkGray;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+  overflow: hidden;
+  text-overflow: clip;
+  &:hover {
+    border-color: $lightRed;
+  }
+}
+.slideImg {
+  width: 100%;
+}
+
+.slideTitle {
+  color: white;
+  font-weight: bold;
+  padding: 8px 16px;
+}
+.slideDescription {
+  font-size: 14px;
+  padding: 0px 16px;
+  color: #ccc8c8;
+}
