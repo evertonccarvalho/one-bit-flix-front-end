@@ -1,3 +1,4 @@
+import Footer from "@/src/components/commom/footer";
 import FavoriteCategory from "@/src/components/homeAuth/favoriteCategory";
 import FeaturedCategory from "@/src/components/homeAuth/featuredCategory";
 import FeaturedSection from "@/src/components/homeAuth/featuredSection";
@@ -20,6 +21,7 @@ export default function HomeAuth() {
           <FavoriteCategory />
           <FeaturedCategory />
           <ListCategories />
+          <Footer />
         </Container>
       </main>
     </>
