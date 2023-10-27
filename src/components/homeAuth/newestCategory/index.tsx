@@ -15,10 +15,8 @@ export default function NewestCategory() {
     );
   return (
     <>
-      <Container className="align-items-center">
-        <p className={styles.titleCategory}>Lançamentos</p>
-        <SlideComponent course={data.data} />
-      </Container>
+      <p className={styles.titleCategory}>Lançamentos</p>
+      <SlideComponent course={data.data} />
     </>
   );
 }

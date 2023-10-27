@@ -16,10 +16,8 @@ export default function FeaturedCategory() {
     );
   return (
     <>
-      <Container className=" align-items-center">
-        <p className={styles.titleCategory}>Em Destaque</p>
-        <SlideComponent course={data.data} />
-      </Container>
+      <p className={styles.titleCategory}>Em Destaque</p>
+      <SlideComponent course={data.data} />
     </>
   );
 }
