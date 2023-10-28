@@ -1,4 +1,3 @@
-import { type } from "os";
 import api from "./api";
 import { CourseType } from "./courseService";
 
@@ -6,7 +5,7 @@ export type CategoryType = {
   id: number;
   name: string;
   position: number;
-  courses?: CategoryType[];
+  courses?: CourseType[];
 };
 
 const categoriesService = {
