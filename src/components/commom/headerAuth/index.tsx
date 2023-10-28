@@ -4,7 +4,6 @@ import Link from "next/link";
 import Modal from "react-modal";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { profile } from "console";
 import profileService from "@/src/services/profileService";
 
 Modal.setAppElement("#__next");
@@ -16,11 +15,16 @@ export default function HeaderAuth() {
 
   useEffect(() => {
     profileService.fetchCurrent().then((user) => {
-      const firstNameInitial = user.firstName.slice(0, 1);
-      const lastNameInitial = user.lastName.slice(0, 1);
-      setInitials(firstNameInitial + lastNameInitial);
+      if (user) {
+        const firstNameInitial = user.firstName
+          ? user.firstName.slice(0, 1)
+          : "";
+        const lastNameInitial = user.lastName ? user.lastName.slice(0, 1) : "";
+        setInitials(firstNameInitial + lastNameInitial);
+      }
     });
-  });
+  }, []);
+
   const handleOpenModal = () => {
     setModalOpen(true);
   };

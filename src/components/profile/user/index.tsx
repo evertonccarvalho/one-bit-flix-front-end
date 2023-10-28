@@ -131,7 +131,7 @@ export default function UserForm() {
           </FormGroup>{" "}
           <FormGroup>
             <Label for="email" className={styles.label}>
-              Whatssapp / Telegram
+              Email
             </Label>
             <Input
               name="email"
