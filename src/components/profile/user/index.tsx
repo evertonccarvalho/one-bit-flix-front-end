@@ -4,6 +4,7 @@ import { FormEvent, useState, useEffect } from "react";
 import profileService from "@/src/services/profileService";
 import ToastComponent from "../../commom/toast";
 import { useRouter } from "next/router";
+
 export default function UserForm() {
   const router = useRouter();
   const [color, setColor] = useState("");
