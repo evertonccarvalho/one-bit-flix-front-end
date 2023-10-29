@@ -71,7 +71,20 @@ const courseService = {
   getFavCourses: async () => {
     const token = sessionStorage.getItem("onebitflix-token");
     const res = await api
-      .get("favorites", {
+      .get("/favorites", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .catch((error) => {
+        return error.response;
+      });
+    return res;
+  },
+  getSearch: async (name: string) => {
+    const token = sessionStorage.getItem("onebitflix-token");
+    const res = await api
+      .get(`/courses/search?name=${name}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

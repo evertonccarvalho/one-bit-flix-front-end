@@ -33,11 +33,7 @@ export default function FeaturedSection() {
               <Link href={`/courses/${course.id}`}>
                 <Button outline color="light" className={styles.button}>
                   Acesse Agora!
-                  <img
-                    src="/buttonPlay.svg"
-                    alt="buttonImg"
-                    className={styles.buttonImg}
-                  />
+                  <img src="/buttonPlay.svg" alt="buttonImg" className={styles.buttonImg} />
                 </Button>
               </Link>
             </Container>
