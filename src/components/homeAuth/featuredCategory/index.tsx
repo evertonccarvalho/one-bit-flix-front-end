@@ -3,17 +3,15 @@ import styles from "@/styles/slideCategory.module.scss";
 import useSWR from "swr";
 import SlideComponent from "../../commom/slideComponent";
 import { Container } from "reactstrap";
+import PageSpinner from "../../commom/spinner";
 
 export default function FeaturedCategory() {
   const { data, error } = useSWR("/featured", courseService.getFeaturedCourses);
 
   if (error) return error;
-  if (!data)
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
+  if (!data) {
+    return <PageSpinner />;
+  }
   return (
     <>
       <p className={styles.titleCategory}>Em Destaque</p>

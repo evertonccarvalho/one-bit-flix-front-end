@@ -4,6 +4,7 @@ import categoriesService, {
 
 import useSWR from "swr";
 import ListCategoriesSlide from "../listCategoriesSlide";
+import PageSpinner from "../../commom/spinner";
 
 export default function ListCategories() {
   const { data, error } = useSWR(
@@ -12,12 +13,9 @@ export default function ListCategories() {
   );
 
   if (error) return error;
-  if (!data)
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
+  if (!data) {
+    return <PageSpinner />;
+  }
   return (
     <>
       {data.data.categories?.map((category: CategoryType) => (

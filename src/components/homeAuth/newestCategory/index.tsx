@@ -3,16 +3,14 @@ import courseService from "@/src/services/courseService";
 import useSWR from "swr";
 import SlideComponent from "../../commom/slideComponent";
 import { Container } from "reactstrap";
+import PageSpinner from "../../commom/spinner";
 export default function NewestCategory() {
   const { data, error } = useSWR("/newest", courseService.getNewestCourses);
 
   if (error) return error;
-  if (!data)
-    return (
-      <>
-        <p>Loading...</p>
-      </>
-    );
+  if (!data) {
+    return <PageSpinner />;
+  }
   return (
     <>
       <p className={styles.titleCategory}>Lançamentos</p>
