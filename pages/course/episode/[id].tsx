@@ -11,6 +11,7 @@ import { Button, Container } from "reactstrap";
 
 export default function EpisodePlayer() {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
   const [course, setCourse] = useState<CourseType>();
   const [isReady, setIsReady] = useState(false);
   const episodeOrder = parseFloat(router.query.id?.toString() || "");
@@ -69,6 +70,14 @@ export default function EpisodePlayer() {
   useEffect(() => {
     getCourse();
   }, [courseId]);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem("onebitflix-token")) {
+      router.push("/login");
+    } else {
+      setLoading(false);
+    }
+  }, []);
 
   if (course?.episodes === undefined) return <PageSpinner />;
 
