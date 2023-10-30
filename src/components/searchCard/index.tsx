@@ -8,7 +8,7 @@ interface props {
 export default function SearchCard({ course }: props) {
   return (
     <>
-      <Link href={`/courses/${course.id}`}>
+      <Link href={`/course/${course.id}`}>
         <div className={styles.searchCard}>
           <img
             className={styles.searchCardImg}
