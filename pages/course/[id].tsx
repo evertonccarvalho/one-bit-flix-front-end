@@ -124,7 +124,9 @@ export default function CoursePage() {
           {course?.episodes?.length === 0 ? (
             <strong>Não Temos episódios ainda, volte outra hora! &#x1f606;&#x1F918; </strong>
           ) : (
-            course?.episodes?.map((episode) => <EpisodeList key={episode.id} episode={episode} />)
+            course?.episodes?.map((episode) => (
+              <EpisodeList key={episode.id} episode={episode} course={course} />
+            ))
           )}
         </Container>
         <Footer />
