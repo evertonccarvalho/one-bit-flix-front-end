@@ -9,8 +9,7 @@ import PasswordForm from "@/src/components/profile/password";
 import PageSpinner from "@/src/components/commom/spinner";
 import { useRouter } from "next/router";
 export default function UserInfo() {
-  const [form, setForm] = useState("");
-
+  const [form, setForm] = useState("userForm");
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
@@ -29,38 +28,42 @@ export default function UserInfo() {
   return (
     <>
       <Head>
-        <title>OneBitFlix - Meus dados</title>
+        <title>Onebitflix - Meus dados</title>
         <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
       </Head>
-      <main className={styles.main}>
-        <HeaderAuth />
-        <Container className={styles.gridContainer}>
+      <main>
+        <div className={styles.header}>
+          <HeaderAuth />
+        </div>
+        <Container className="py-5">
           <p className={styles.title}>Minha Conta</p>
           <Row className="pt-3 pb-5">
             <Col md={4} className={styles.btnColumn}>
               <Button
-                style={{ color: form === "userForm" ? "#ff0044" : "white" }}
                 className={styles.renderForm}
+                style={{ color: form === "userForm" ? "#FF0044" : "white" }}
                 onClick={() => {
                   setForm("userForm");
                 }}
               >
-                Dados Pessoais
+                DADOS PESSOAIS
               </Button>
               <Button
-                style={{ color: form === "passwordForm" ? "#ff0044" : "white" }}
                 className={styles.renderForm}
+                style={{ color: form === "passwordForm" ? "#FF0044" : "white" }}
                 onClick={() => {
                   setForm("passwordForm");
                 }}
               >
-                Senha
+                SENHA
               </Button>
             </Col>
             <Col md>{form === "userForm" ? <UserForm /> : <PasswordForm />}</Col>
           </Row>
         </Container>
-        <Footer />
+        <div className={styles.footer}>
+          <Footer />
+        </div>
       </main>
     </>
   );

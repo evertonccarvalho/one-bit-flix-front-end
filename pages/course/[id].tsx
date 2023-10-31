@@ -23,7 +23,7 @@ export default function CoursePage() {
     } else {
       setLoading(false);
     }
-  }, []);
+  }, [router]);
 
   const getCourse = async function () {
     if (typeof id !== "string") return;
@@ -39,6 +39,7 @@ export default function CoursePage() {
 
   useEffect(() => {
     getCourse();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const handleLikeCourse = async () => {

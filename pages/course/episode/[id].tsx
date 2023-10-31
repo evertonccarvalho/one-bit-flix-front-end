@@ -50,6 +50,7 @@ export default function EpisodePlayer() {
 
   useEffect(() => {
     handleGetEpisodeTime();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
   const getCourse = async function () {
@@ -69,6 +70,7 @@ export default function EpisodePlayer() {
 
   useEffect(() => {
     getCourse();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [courseId]);
 
   useEffect(() => {
@@ -77,7 +79,7 @@ export default function EpisodePlayer() {
     } else {
       setLoading(false);
     }
-  }, []);
+  }, [router]);
 
   if (course?.episodes === undefined) return <PageSpinner />;
 

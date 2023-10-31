@@ -7,8 +7,7 @@ import ToastComponent from "../../commom/toast";
 export default function PasswordForm() {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [color, setColor] = useState("");
   const [toastIsOpen, setToastIsOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -20,25 +19,27 @@ export default function PasswordForm() {
     });
   }, []);
 
-  const handlePasswordUpadate = async function (
-    event: FormEvent<HTMLFormElement>
-  ) {
+  const handlePasswordUpdate = async function (event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (newPassword != confirmPassword) {
+    if (newPassword != confirmNewPassword) {
       setToastIsOpen(true);
       setErrorMessage("Senha e confirmação de senha diferentes!");
       setColor("bg-danger");
-      setTimeout(() => setToastIsOpen(false), 1000 * 3);
+      setTimeout(() => {
+        setToastIsOpen(false);
+      }, 1000 * 3);
 
       return;
     }
 
     if (currentPassword === newPassword) {
       setToastIsOpen(true);
-      setErrorMessage("Não coloque a nova senha igual a senha antiga!");
+      setErrorMessage("Não coloque a nova senha iguakl a senha antiga!");
       setColor("bg-danger");
-      setTimeout(() => setToastIsOpen(false), 1000 * 3);
+      setTimeout(() => {
+        setToastIsOpen(false);
+      }, 1000 * 3);
 
       return;
     }
@@ -48,37 +49,42 @@ export default function PasswordForm() {
       newPassword,
     });
 
-    if (res === 200) {
+    if (res === 204) {
       setToastIsOpen(true);
       setErrorMessage("Senha alterada com sucesso!");
       setColor("bg-success");
-      setTimeout(() => setToastIsOpen(false), 1000 * 3);
+      setTimeout(() => {
+        setToastIsOpen(false);
+      }, 1000 * 3);
 
       setCurrentPassword("");
       setNewPassword("");
-      setConfirmPassword("");
+      setConfirmNewPassword("");
     }
+
     if (res === 400) {
       setToastIsOpen(true);
       setErrorMessage("Senha atual incorreta!");
       setColor("bg-danger");
-      setTimeout(() => setToastIsOpen(false), 1000 * 3);
+      setTimeout(() => {
+        setToastIsOpen(false);
+      }, 1000 * 3);
     }
   };
 
   return (
     <>
-      <Form className={styles.form} onSubmit={handlePasswordUpadate}>
+      <Form onSubmit={handlePasswordUpdate} className={styles.form}>
         <div className={styles.inputNormalDiv}>
           <FormGroup>
             <Label className={styles.label} for="currentPassword">
-              Senha Atual
+              SENHA ATUAL
             </Label>
             <Input
               name="currentPassword"
               type="password"
               id="currentPassword"
-              placeholder="***********"
+              placeholder="********"
               required
               minLength={6}
               maxLength={12}
@@ -93,13 +99,13 @@ export default function PasswordForm() {
         <div className={styles.inputFlexDiv}>
           <FormGroup>
             <Label for="newPassword" className={styles.label}>
-              Nova Senha
+              NOVA SENHA
             </Label>
             <Input
               name="newPassword"
               type="password"
               id="newPassword"
-              placeholder="***********"
+              placeholder="********"
               required
               minLength={6}
               maxLength={12}
@@ -107,26 +113,26 @@ export default function PasswordForm() {
               onChange={(event) => {
                 setNewPassword(event.currentTarget.value);
               }}
-              className={styles.input}
+              className={styles.inputFlex}
             />
           </FormGroup>
           <FormGroup>
-            <Label for="confirmPassword" className={styles.label}>
-              Confirme a Nova Senha
+            <Label for="confirmNewPassword" className={styles.label}>
+              CONFIRMAR NOVA SENHA
             </Label>
             <Input
-              name="confirmPassword"
+              name="confirmNewPassword"
               type="password"
-              id="confirmPassword"
-              placeholder="***********"
+              id="confirmNewPassword"
+              placeholder="********"
               required
               minLength={6}
               maxLength={12}
-              value={confirmPassword}
+              value={confirmNewPassword}
               onChange={(event) => {
-                setConfirmPassword(event.currentTarget.value);
+                setConfirmNewPassword(event.currentTarget.value);
               }}
-              className={styles.input}
+              className={styles.inputFlex}
             />
           </FormGroup>
         </div>
@@ -134,11 +140,7 @@ export default function PasswordForm() {
           Salvar Alterações
         </Button>
       </Form>
-      <ToastComponent
-        color={color}
-        isOpen={toastIsOpen}
-        message={errorMessage}
-      />
+      <ToastComponent color={color} isOpen={toastIsOpen} message={errorMessage} />
     </>
   );
 }
