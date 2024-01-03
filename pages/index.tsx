@@ -6,7 +6,7 @@ import CardsSection from '@/src/components/homeNoAuth/cardSection';
 import SlideSection from '@/src/components/homeNoAuth/slideSection';
 import { CourseType } from '@/src/services/courseService';
 import { ReactNode, useEffect } from 'react';
-import Footer from '@/src/components/commom/footer';
+import Footer from '@/src/components/common/footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 interface IndexPageProps {

@@ -1,8 +1,8 @@
 import categoriesService from '@/src/services/categoriesServices';
 import style from '@/styles/slideCategory.module.scss';
-import SlideComponent from '../../commom/slideComponent';
+import SlideComponent from '../../common/slideComponent';
 import useSWR from 'swr';
-import PageSpinner from '../../commom/spinner';
+import PageSpinner from '../../common/spinner';
 
 interface props {
 	categoryId: number;
