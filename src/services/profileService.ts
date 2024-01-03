@@ -29,6 +29,7 @@ const profileService = {
 
     return res.data;
   },
+
   userUpdate: async (params: UserParams) => {
     const token = sessionStorage.getItem("onebitflix-token");
 

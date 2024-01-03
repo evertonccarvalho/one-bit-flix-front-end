@@ -17,13 +17,13 @@ export default function CoursePage() {
   const [loading, setLoading] = useState(true);
   const { id } = router.query;
 
-  useEffect(() => {
-    if (!sessionStorage.getItem("onebitflix-token")) {
-      router.push("/login");
-    } else {
-      setLoading(false);
-    }
-  }, [router]);
+  // useEffect(() => {
+  //   if (!sessionStorage.getItem("onebitflix-token")) {
+  //     router.push("/login");
+  //   } else {
+  //     setLoading(false);
+  //   }
+  // }, [router]);
 
   const getCourse = async function () {
     if (typeof id !== "string") return;

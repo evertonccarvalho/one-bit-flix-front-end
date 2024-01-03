@@ -9,13 +9,16 @@ export default function UserForm() {
   const router = useRouter();
   const [color, setColor] = useState("");
   const [toastIsOpen, setToastIsOpen] = useState(false);
+
   const [errorMensage, setErrorMensage] = useState("");
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [initialEmail, setInitialEmail] = useState(email);
   const [created_at, setCreatedAt] = useState("");
+
   const date = new Date(created_at);
   const month = date.toLocaleDateString("default", { month: "long" });
 
@@ -68,11 +71,7 @@ export default function UserForm() {
           <p className={styles.userName}>{`${firstName} ${lastName}`}</p>
         </div>
         <div className={styles.memberTime}>
-          <img
-            className={styles.memberTimeImg}
-            src="/profile/iconUserAccount.svg"
-            alt="iconProfile"
-          />
+          <img className={styles.memberTimeImg} src="/profile/iconUserAccount.svg" alt="iconProfile" />
           <p className={styles.memberTimeText}>
             Membro desde <br />
             {`${date.getDate()} de ${month} de ${date.getFullYear()}`}
@@ -149,11 +148,7 @@ export default function UserForm() {
           </Button>
         </div>
       </Form>
-      <ToastComponent
-        color={color}
-        isOpen={toastIsOpen}
-        message={errorMensage}
-      />
+      <ToastComponent color={color} isOpen={toastIsOpen} message={errorMensage} />
     </>
   );
 }
